@@ -1,0 +1,83 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profile records",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "username": { "type": "string" },
+        "fullName": { "type": "string" },
+        "school": { "type": "string" },
+        "grade": { "type": "string" },
+        "textbook": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "calculations": {
+      "title": "Calculation",
+      "description": "Solved math formula records",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "expression": { "type": "string" },
+        "result": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "expression", "result"]
+    },
+    "curriculums": {
+      "title": "Curriculum",
+      "description": "OCR curriculum plans and diagnostics",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "extractedText": { "type": "string" },
+        "targetScore": { "type": "number" },
+        "diagnosticScore": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "title"]
+    },
+    "exams": {
+      "title": "Exam",
+      "description": "Mini-exam results and score tracking",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "board": { "type": "string" },
+        "grade": { "type": "string" },
+        "chapter": { "type": "string" },
+        "totalQuestions": { "type": "number" },
+        "score": { "type": "number" },
+        "percentage": { "type": "number" },
+        "completedAt": { "type": "string" }
+      },
+      "required": ["userId", "title", "score"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "User profile documents keyed by Firebase UID"
+    },
+    "/users/{userId}/calculations/{calcId}": {
+      "schema": "calculations",
+      "description": "Calculation records for user"
+    },
+    "/users/{userId}/curriculums/{curriculumId}": {
+      "schema": "curriculums",
+      "description": "Curriculum course plans for user"
+    },
+    "/users/{userId}/exams/{examId}": {
+      "schema": "exams",
+      "description": "Completed mini-exams for user"
+    }
+  }
+}

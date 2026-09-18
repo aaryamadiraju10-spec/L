@@ -1,0 +1,6 @@
+{
+  "name": "MathFormula Studio",
+  "description": "Comprehensive math formula solver with step-by-step breakdowns, OCR curriculum scanner, adaptive study plans, mini-exams, AI tutor, parent reports, SQL account sync, and mobile project exports.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
